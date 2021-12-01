@@ -1,0 +1,152 @@
+{
+  "admin": [
+    {
+      "id": "1",
+      "nom": "admin",
+      "prenom": "admin",
+      "email": "admin@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "formateur": [
+    {
+      "nom": "ve;",
+      "prenom": "kjh",
+      "cin": "lkj",
+      "tel": "lkj",
+      "email": "hdiuqzef@gmail.com",
+      "password": "lkj",
+      "id": 5
+    },
+    {
+      "nom": "kjh",
+      "prenom": "kjh",
+      "cin": "lll",
+      "tel": "kjh",
+      "email": "kjhkjjjjjjjjjjjjjjjjjjjkj@gmail.eom",
+      "password": "kjh",
+      "id": 6
+    },
+    {
+      "nom": "kjh",
+      "prenom": "kjh",
+      "cin": "HH222",
+      "tel": "kjh",
+      "email": "kj@gmail.eom",
+      "password": "kjh",
+      "id": 7
+    }
+  ],
+  "condidat": [
+    {
+      "nom": "alami",
+      "prenom": "yahya",
+      "email": "user1@gmail.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "nom": "KKDKD",
+      "prenom": "KSKS",
+      "cin": "KKK",
+      "tel": "KKS",
+      "datenaissance": "30/11/1999",
+      "email": "DK",
+      "password": "KDKD",
+      "id": 4
+    },
+    {
+      "nom": "kkkk",
+      "prenom": "hahahahaha",
+      "cin": "H12333",
+      "tel": "0777882111",
+      "datenaissance": "28/01/1998",
+      "email": "livreur1@gmail.com",
+      "password": "user123",
+      "id": 5
+    },
+    {
+      "nom": "",
+      "prenom": "",
+      "cin": "",
+      "tel": "",
+      "datenaissance": "16/12/1998",
+      "email": "",
+      "password": "",
+      "id": 6
+    },
+    {
+      "nom": "",
+      "prenom": "",
+      "cin": "ksksksk",
+      "tel": "",
+      "datenaissance": "29/12/1998",
+      "email": "",
+      "password": "",
+      "id": 7
+    },
+    {
+      "nom": "kdkd",
+      "prenom": "ksksk",
+      "cin": "ksksk",
+      "tel": "ksksk",
+      "datenaissance": "07/12/1998",
+      "email": "",
+      "password": "",
+      "id": 8
+    }
+  ],
+  "apprenant": [],
+  "staff": [],
+  "questions": [
+    {
+      "id": "",
+      "type": "",
+      "point": "",
+      "nom": "",
+      "repenses": [
+        {
+          "repense": "1",
+          "status": "true"
+        },
+        {
+          "repense": "2",
+          "status": "false"
+        },
+        {
+          "repense": "3",
+          "status": "false"
+        },
+        {
+          "repense": "4",
+          "status": "false"
+        }
+      ]
+    }
+  ],
+  "test": [
+    {
+      "id": "",
+      "formateur": "",
+      "nom": "",
+      "datedebut": "",
+      "datefin": "",
+      "afficheresult": "",
+      "scoore": "",
+      "questions": [
+        "idquestion Ex",
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "result": [
+    {
+      "id": "",
+      "idcondidat": "",
+      "idtest": "",
+      "scoore": ""
+    }
+  ]
+}
