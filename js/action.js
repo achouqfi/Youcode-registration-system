@@ -271,8 +271,7 @@ document.querySelectorAll('#login').forEach(Element =>{
          }
          else  {
             // window.location.href = "http://127.0.0.1:5500/auth.html";
-            alert("ghalat dyal admin") 
-            
+            alert("les informations son incorrect") 
         }
 
     });

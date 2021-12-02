@@ -1,57 +1,72 @@
-body{
-    background-color: #eeeeee;
+body {
+	background: #eee;
 }
 
-.grid{
-    width: 600px;
-    height: 500px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 10px 50px 50px 50px;
-    border-radius: 20px;
-    border: 2px solid #cbcbcb;
+.wrapper {
+	width: 600px;
+	height: 500px;
+	background: #fff;
+	margin: 50px auto;
+	border: 5px solid rgba(1, 97, 161, 0.993);
+	padding: 20px 50px 50px 50px;
 }
 
-.grid h1{
-    font-family: sans-serif;
-    background-color: #3f7fbb;
-    font-size: 60px;
-    text-align: center;
-    color: #fff;
-    padding: 2px 0px;
-    border-radius: 20px;
+.wrapper h1 {
+	text-align: center;
+	font-family: sans-serif;
+	background: rgba(1, 97, 161, 0.993);;
+	color: #fff;
+	padding: 3px;
+	border-radius: 5px;
+
 }
 
-.grid #question{
-    font-family: sans-serif;
-    font-size: 30px;
-    color: #5a6772;
+.wrapper #question {
+	font-family: sans-serif;
+	font-size: 30px;
+	color:#fcfcfc;
 }
 
-.buttons{
-    margin-top: 30px;
+.buttons {
+	margin-top: 30px;
+    margin-left: 16px;
 }
 
-#btn0, #btn1, #btn2 , #btn3{
-    background-color: #4189c9;
-    width: 250px;
-    font-size: 20px;
-    color: #fff;
-    border-radius: 50px;
-    margin: 10px 40px 10px 0px;
-    padding: 10px 10px;
+#btn0,#btn1,#btn2,#btn3 {
+	background-color: rgba(1, 97, 161, 0.993);;
+	width: 250px;
+	font-size: 20px;
+	color: #fff;
+	border: 1px solid #1d3c6a;
+	padding: 10px;
+	margin: 10px 40px 10px 0;
+	border-radius: 50px;
+    font-weight: 500;
+	
+}
+#btn0:hover,#btn1:hover,#btn2:hover,#btn3:hover {
+	background: rgb(0, 70, 128);
+	cursor: pointer;
 }
 
-#progress{
-    color: #2b2b2b;
-    font-size: 18px;
+#btn0:focus,#btn1:focus,#btn2:focus,#btn3:focus {
+	outline:0;
 }
 
-#btn0:hover,#btn1:hover,#btn2:hover,#btn3:hover{
-    cursor: pointer;
-    background-color: #030f1a;
+#progress {
+	font-size: 18px;
+	color: #2f2f2f;
 }
 
-
-/* table  */
-
+.progress-number {
+	padding: 2px;
+	border: 1px solid #fff;
+	background-color: rgb(0, 85, 182);
+	height: 25px;
+	width: 25px;
+	vertical-align: middle;
+	text-align: center;
+	border-radius: 50%;
+	color: #fff; 
+	display: inline-block;
+}
