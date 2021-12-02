@@ -201,22 +201,52 @@ document.querySelectorAll('.updatef').forEach(Element =>{
     });
 });
 
-console.log(chercherole());
 
 //auth condidat
 document.querySelectorAll('#auth').forEach(Element =>{
-    let verifdash = 0;
     let verif = 0;
     Element.addEventListener('click', async ()=>{
         let email=document.getElementById("email").value;
         let password=document.getElementById("password").value;
         let persone=new personne();
-        let dataStaf= await persone.afficherall("staff");
         let dataCandidat= await persone.afficherall("condidat");
-       
+        let dataApprenant= await persone.afficherall("apprenant");
+        
+        if( chercherole()== "auth") {
+                dataApprenant.data.forEach(element => {
+                    if(element.email==email && element.password==password){
+                        verif=1;
+                    }
+                });
+                dataCandidat.data.forEach(element => {
+                    if(element.email==email && element.password==password){
+                        verif=1;
+                    }
+
+                });
+        }
+
+        if(verif == 1){
+            alert("ana f page home");
+            //  window.location.href = "http://127.0.0.1:5500/home";
+         }else{
+            alert("les informations son incorrect");
+         }
+    });
+});
+
+
+
+//auth admin
+document.querySelectorAll('#login').forEach(Element =>{
+    let verifdash = 0;
+    Element.addEventListener('click', async ()=>{
+        let email=document.getElementById("email").value;
+        let password=document.getElementById("password").value;
+        let persone=new personne();
+        let dataStaf= await persone.afficherall("staff");
         let dataFormateur= await persone.afficherall("formateur");
         let dataAdmin= await persone.afficherall("admin");
-        let dataApprenant= await persone.afficherall("apprenant");
 
         if( chercherole()== "login"){
                 dataStaf.data.forEach(element => {
@@ -244,31 +274,6 @@ document.querySelectorAll('#auth').forEach(Element =>{
             alert("ghalat dyal admin") 
             
         }
-        
-        if( chercherole()== "auth") {
-                dataApprenant.data.forEach(element => {
-                    if(element.email==email && element.password==password){
-                        verif=1;
-                    }
-                });
-                dataCandidat.data.forEach(element => {
-                    if(element.email==email && element.password==password){
-                        verif=1;
-                        // console.log("ana hena")
-                    }
-                    // console.log(element.email);
-                    // console.log(element.password);
-                    // console.log(element.id);
-                });
 
-        }
-
-        if(verif == 1){
-            alert("nta hena")
-      
-            //  window.location.href = "http://127.0.0.1:5500/home";
-         }else{
-            alert("les informations son incorrect");
-         }
     });
 });
