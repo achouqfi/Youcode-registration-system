@@ -13,18 +13,19 @@
 <body>
     <div class="wrapper fadeInDown">
         <div id="formContent">
-              <form action="./index.html">
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+              <!-- <form action="./index.html"> -->
+            <input type="text" id="email" class="fadeIn second" name="login" placeholder="login">
             <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
       
           <!-- Remind Passowrd -->
           <div id="formFooter">
-              
-            <input type="submit" class="fadeIn fourth" value="Log In">
+            <input type="submit" class="fadeIn fourth" id="auth" value="Log In">
           </div>
-        </form>
-
+        <!-- </form> -->
         </div>
       </div>
+
+      <script src="./js/action.js" type="module"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 </html>
