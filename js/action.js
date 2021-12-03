@@ -222,7 +222,6 @@ document.querySelectorAll('#auth').forEach(Element =>{
                     if(element.email==email && element.password==password){
                         verif=1;
                     }
-
                 });
         }
 

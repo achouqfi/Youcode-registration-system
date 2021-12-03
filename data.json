@@ -100,28 +100,50 @@
   ],
   "questions": [
     {
-      "id": "",
-      "type": "",
+      "type": "Selectionné le type de test",
       "point": "",
       "nom": "",
       "repenses": [
         {
-          "repense": "1",
+          "repense": "",
+          "status": "status de la question"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "type": "Selectionné le type de test",
+      "point": "",
+      "nom": "",
+      "repenses": [],
+      "id": 3
+    },
+    {
+      "type": "motivation",
+      "point": "2",
+      "nom": "ve;",
+      "repenses": [
+        {
+          "repense": "fg",
+          "status": "false"
+        },
+        {
+          "repense": "fg",
+          "status": "false"
+        },
+        {
+          "repense": "fg",
           "status": "true"
         },
         {
-          "repense": "2",
-          "status": "false"
-        },
-        {
-          "repense": "3",
-          "status": "false"
-        },
-        {
-          "repense": "4",
+          "repense": "resp",
           "status": "false"
         }
-      ]
+      ],
+      "id": 4
     }
   ],
   "test": [

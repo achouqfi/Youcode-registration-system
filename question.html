@@ -80,57 +80,68 @@
                                     </div>
                                 </div>
                             </div>
-                            <table class="table table-striped table-hover">
+                            <table class="table table-striped table-hover" id="idtable">
                                 <thead>
                                     <tr>
-   
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>message</th>
-                                        <th>Phone</th>
-                                        <th>Actions</th>
+                                        <th>type</th>
+                                        <th>point</th>
+                                        <th>question</th>
+                                        <th>repense</th>
+                                        <th>action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <form >
+                                    <!-- <form > -->
                                         <div id="addEmployeeModal">
                                             <div class="modal-header ">						
                                                 <h4 class="modal-title">Ajouter un question</h4>
                                             </div>
                                             <div class="modal-body ">					
                                                 <div class="form-group">
-                                                    <label>Nom</label>
-                                                    <input type="text" id="nom" class="form-control" required>
+                                                    <label>Type de test</label>
+                                                    <select class="form-select" id="type" aria-label="Default select example">
+                                                        <option >Selectionné le type de test</option>
+                                                        <option value="technique">Technique</option>
+                                                        <option value="motivation">Motivation</option>
+                                                        <option value="serious game">Serious game</option>
+                                                    </select>                                               
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Email</label>
-                                                    <input type="email" id="email" class="form-control" required>
+                                                    <label>Point</label>
+                                                    <input type="number" id="point" min="1" class="form-control" >
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Password</label>
-                                                    <input class="form-control" id="password" required>
-                                                </div>   
-                                                <div class="form-group">
-                                                    <label>Prenom</label>
-                                                    <input type="text" id="prenom" class="form-control" required>
-                                                </div>   
-                                                <input type="text" id="id" class="form-control" hidden>
-    
-                                                <div class="form-group">
-                                                    <label>CIN</label>
-                                                    <input class="form-control" id="cin" required>
-                                                </div>                                    
-                                                <div class="form-group">
-                                                    <label>Tel</label>
-                                                    <input type="text" class="form-control" id="tel" required>
-                                                </div>					
+                                                    <label>question</label>
+                                                    <input class="form-control" id="nom" >
+                                                </div> 
+                                                <div id="divrep">
+                                                    <div class="rrr">
+                                                        <div class="form-group">
+                                                            <label>repense</label>
+                                                            <input type="text" id="repense" class="form-control">
+                                                        </div>   
+                                                        <input type="text" id="id" class="form-control" hidden>
+                                                        <div class="form-group">
+                                                            <label>status</label>
+                                                            <select class="form-select" id="status" aria-label="Default select example">
+                                                                <option  >status de la question</option>
+                                                                <option value="true">true</option>
+                                                                <option value="false">false</option>
+                                                            </select> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                                                   
+ 
                                             </div>
                                             <div class="modal-footer">
-                                                <input type="submit" class="btn btn-success" id="ajouterf" value="Add">
-                                                <input type="submit" class="updatef btn btn-warning " id="updatef"  value="update">
+                                                <input type="submit" class="btn btn-success"  id="ajouterq" value="ajouter">
+                                                <input type="submit" class="btn btn-info text-white" id="plusrepense" value="neauveau reponse">
+                                                <input type="submit" class="btn btn-light" id="affiche" value="Afficher">
+                                                <input type="submit" class="btn btn-warning text-white" id="updateq"  value="update">
                                             </div>
                                         </div>
-                                    </form>
+                                    <!-- </form> -->
                                 </tbody>
                             </table>
                         </div>
@@ -140,7 +151,7 @@
         </div>
     <!-- /#page-content-wrapper -->
     </div>
-    <script src="./js/action.js" type="module"></script>
+    <script src="./js/actionquestion.js" type="module"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
