@@ -33,7 +33,7 @@
       "cin": "HH222",
       "tel": "kjh",
       "email": "kj@gmail.eom",
-      "password": "kjh",
+      "password": "kjhddd",
       "id": 7
     },
     {
@@ -66,14 +66,24 @@
   ],
   "condidat": [
     {
-      "nom": "nori",
-      "prenom": "ayoub",
-      "cin": "hh1234",
-      "tel": "0777882299",
-      "datenaissance": "02/05/1997",
-      "email": "ayoub@gmail.com",
-      "password": "1234567",
-      "id": 10
+      "nom": "kjhkjh",
+      "prenom": "kjh",
+      "cin": "dd",
+      "tel": "lkklk",
+      "datenaissance": "31/03/1999",
+      "email": "a@gmail.com",
+      "password": "7w6mfotddsss",
+      "id": 1
+    },
+    {
+      "nom": "jhkhj",
+      "prenom": "kh",
+      "cin": "hh",
+      "tel": "0909",
+      "datenaissance": "22/02/1999",
+      "email": "badr@gmail.com",
+      "password": "13g6hihh",
+      "id": 2
     }
   ],
   "apprenant": [

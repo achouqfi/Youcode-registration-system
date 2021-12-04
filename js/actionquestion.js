@@ -1,7 +1,6 @@
 import {question} from "./useClasse.js";
 
 let array=[];
-
 //ajouterrepense
 document.querySelector("#plusrepense").addEventListener("click",()=>{
 
