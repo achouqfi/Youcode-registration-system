@@ -57,27 +57,27 @@
   ],
   "condidat": [
     {
-      "nom": "ve;",
-      "prenom": "1",
-      "cin": "dddddddd",
-      "tel": "kjh",
-      "datenaissance": "17/06/1998",
-      "email": "hdiuqzef@gmail.com",
-      "password": "dddd",
-      "id": 9
-    },
-    {
-      "nom": "1",
-      "prenom": "app",
-      "cin": "hhhhhh",
-      "tel": "ffffffff",
-      "datenaissance": "02/05/1994",
+      "nom": "nori",
+      "prenom": "ayoub",
+      "cin": "hh1234",
+      "tel": "0777882299",
+      "datenaissance": "02/05/1997",
       "email": "ayoub@gmail.com",
-      "password": "llll",
+      "password": "1234567",
       "id": 10
     }
   ],
-  "apprenant": [],
+  "apprenant": [
+    {
+      "nom": "nori",
+      "prenom": "ayoub",
+      "cin": "hh12343311",
+      "tel": "0777882299",
+      "email": "ayoub@gmail.com",
+      "password": "1234567",
+      "id": 10
+    }
+  ],
   "staff": [
     {
       "nom": "jhkjhaa",
@@ -100,31 +100,33 @@
   ],
   "questions": [
     {
-      "type": "Selectionné le type de test",
+      "id": "",
+      "type": "",
       "point": "",
       "nom": "",
       "repenses": [
         {
-          "repense": "",
-          "status": "status de la question"
+          "repense": "1",
+          "status": "true"
+        },
+        {
+          "repense": "2",
+          "status": "false"
+        },
+        {
+          "repense": "3",
+          "status": "false"
+        },
+        {
+          "repense": "4",
+          "status": "false"
         }
-      ],
-      "id": 1
+      ]
     },
     {
-      "id": 2
-    },
-    {
-      "type": "Selectionné le type de test",
-      "point": "",
-      "nom": "",
-      "repenses": [],
-      "id": 3
-    },
-    {
-      "type": "motivation",
+      "type": "technique",
       "point": "2",
-      "nom": "ve;",
+      "nom": "app 1",
       "repenses": [
         {
           "repense": "fg",
@@ -137,13 +139,21 @@
         {
           "repense": "fg",
           "status": "true"
-        },
-        {
-          "repense": "resp",
-          "status": "false"
         }
       ],
-      "id": 4
+      "id": "iipM7Ys"
+    },
+    {
+      "type": "technique",
+      "point": "1",
+      "nom": "app 222",
+      "repenses": [
+        {
+          "repense": "aaa",
+          "status": "true"
+        }
+      ],
+      "id": "46lgA5H"
     }
   ],
   "test": [

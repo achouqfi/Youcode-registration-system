@@ -3,6 +3,7 @@ import {personne} from './useClasse.js';
     let urll=document.URL;
     let role;
 
+    
 
     //recherche role
     function chercherole(){
@@ -17,12 +18,17 @@ import {personne} from './useClasse.js';
         }else if(urll.includes("auth")){
             role="auth";
         }else if(urll.includes("candidatList")){
-            role="listCandidat";
+            role="candidatList";
         }else if(urll.includes("login")){
             role="login";
+        }else if(urll.includes("appranantlist")){
+            role="appranantlist";
+        }else if(urll.includes("dashboard")){
+            role="dashboard";
         }
-        return role
+        return role;
     }
+
 
 
     function showForm(){
@@ -73,45 +79,103 @@ import {personne} from './useClasse.js';
             }
         });
     }
+
+   
+    //******************count********************//
+    if(role=="dashboard"){
+    let persone=new personne();
+    let counttestenligne=await persone.afficherall("test");
+    let c=0;
+    let t=0;
+    counttestenligne.data.forEach(element => {
+           if(element.type=="test-en-ligne"){
+                c++;
+           }else if(element.type=="technique") {
+                t++;                
+           } 
+    });
+   document.getElementById("counttestenligne").innerHTML=c;
+   document.getElementById("counttestsourcing").innerHTML=t;
+
+  
+    let countformateur=await persone.afficherall("formateur");
+    let f=0;
+    countformateur.data.forEach(element => {
+            f++;
+    });
+    document.getElementById("countformateur").innerHTML=f;
     
+    let countstaff=await persone.afficherall("staff");
+    let s=0;
+    countstaff.data.forEach(element => {
+            s++;
+    });
+    document.getElementById("countstaff").innerHTML=s;
+
+//****************************remplissage teble apprenant**************************************
+let dataapprenant;
+dataapprenant=await persone.afficherall("apprenant");
+let table=document.getElementById("idtable");
+dataapprenant.data.forEach(element => {
+    table.innerHTML+=`
+    <tr>
+        <td>${element.nom}</td>
+        <td>${element.prenom}</td>
+        <td>${element.email}</td>
+        <td>${element.tel}</td>
+        <td>${element.datenaissance}</td>
+        <td>${element.cin}</td>
+    </tr>`
+});
+
+}
+
+//******************************************************************************************** 
+
 
 //affichage data
 if(chercherole()!="condidat" && chercherole() !="auth"  && chercherole() != "login"){
     let table=document.getElementById("idtable");
     let persone=new personne();
-    let datapersonne=await persone.afficherall(chercherole());    
+    let datapersonne;
+    if(chercherole()=="candidatList"){
+        datapersonne=await persone.afficherall("condidat");    
+    }else if(chercherole()=="appranantlist"){
+        datapersonne=await persone.afficherall("apprenant");
+    }else{
+        datapersonne=await persone.afficherall(chercherole());
+    }
     
-    if(chercherole()!="listCandidat"){
+    if(chercherole()!="candidatList" && chercherole()!="appranantlist" ){
     datapersonne.data.forEach(element => {
         table.innerHTML+=`
         <tr>
-            <td>`+element.id+`</td>
-            <td>`+element.nom+`</td>
-            <td>`+element.prenom+`</td>
-            <td>`+element.cin+`</td>
-            <td>`+element.tel+`</td>
-            <td>`+element.email+`</td>
-            <td>`+element.password+`</td>
-            <td> <button class="supprimer  btn btn-danger text-white" data-type="${element.id}">supprimer</button>
-               <button class="modifier  btn btn-info  text-white" data-type="${element.id}">modifier</button>
+                <td>${element.nom}</td>
+                <td>${element.prenom}</td>
+                <td>${element.email}</td>
+                <td>${element.tel}</td>
+                <td>${element.cin}</td>
+            <td class="d-flex"> <button class="supprimer  btn btn-danger text-white btn-sm" data-type="${element.id}">supprimer</button> &nbsp; &nbsp;
+               <button class="modifier  btn btn-info btn-sm ml-2 text-white" data-type="${element.id}">modifier</button>
             </td>
         </tr>`
         
     });
+
     }else{
+     
+       
         datapersonne.data.forEach(element => {
             table.innerHTML+=`
             <tr>
-                <td>`+element.id+`</td>
-                <td>`+element.nom+`</td>
-                <td>`+element.prenom+`</td>
-                <td>`+element.cin+`</td>
-                <td>`+element.tel+`</td>
-                <td>`+element.datenaissance+`</td>
-                <td>`+element.email+`</td>
-                <td>`+element.password+`</td>
-                <td> <button class="supprimer btn btn-danger text-white" data-type="${element.id}">supprimer</button>
-                <button class="modifier btn btn-info text-white" data-type="${element.id}">modifier</button>
+                <td>${element.nom}</td>
+                <td>${element.prenom}</td>
+                <td>${element.email}</td>
+                <td>${element.tel}</td>
+                <td>${element.datenaissance}</td>
+                <td>${element.cin}</td>
+                <td class="d-flex"> <button class="supprimer btn btn-danger btn-sm text-white" data-type="${element.id}">supprimer</button> &nbsp;&nbsp;
+                <button class="modifier btn btn-info btn-sm ml-2  text-white" data-type="${element.id}">modifier</button>
                 </td>
             </tr>`
         });
@@ -124,6 +188,11 @@ document.querySelectorAll('.supprimer').forEach(Element =>{
     Element.addEventListener('click', async ()=>{
         let id=Element.getAttribute('data-type');
         let role=chercherole();
+        if(role== "candidatList"){
+            role="condidat";
+        }else if(role== "appranantlist"){
+            role="apprenant";
+        }
         let persone=new personne();
         persone.supprimerpersonne(id,role);
     })
@@ -131,13 +200,17 @@ document.querySelectorAll('.supprimer').forEach(Element =>{
 
 //get info d'un seul personne
 document.querySelectorAll('.modifier').forEach(Element=>{
-    // console.log("fff");
     Element.addEventListener('click', async()=>{
         let id= Element.getAttribute('data-type');
         let role = chercherole();
         let persone=new personne();
+        if(role== "candidatList"){
+            role="condidat";
+        }else if(role== "appranantlist"){
+            role="apprenant";
+        }
         let datapersonne=await persone.affcherpersone(id,role);
-        if(role !=="condidat"){
+        if(role !="condidat" && role!="apprenant"){
             document.getElementById("nom").value= datapersonne.data.nom;
             document.getElementById("prenom").value = datapersonne.data.prenom;
             document.getElementById("cin").value = datapersonne.data.cin;
@@ -146,13 +219,14 @@ document.querySelectorAll('.modifier').forEach(Element=>{
             document.getElementById("password").value = datapersonne.data.password;
             document.getElementById("id").value =id;
         }
-        else{
-            document.getElementById("nom").value= Element.nom;
-            document.getElementById("prenom").value = Element.prenom;
-            document.getElementById("cin").value = Element.cin;
-            document.getElementById("tel").value = Element.tel;
-            document.getElementById("email").value = Element.email;
-            document.getElementById("password").value = Element.password;
+        else {
+            document.getElementById("nom").value= datapersonne.data.nom;
+            document.getElementById("prenom").value = datapersonne.data.prenom;
+            document.getElementById("cin").value = datapersonne.data.cin;
+            document.getElementById("tel").value = datapersonne.data.tel;
+            document.getElementById("datens").value = datapersonne.data.datenaissance;
+            document.getElementById("email").value = datapersonne.data.email;
+            document.getElementById("password").value = datapersonne.data.password;
             document.getElementById("id").value =id;
         }
     })
@@ -162,8 +236,7 @@ document.querySelectorAll('.modifier').forEach(Element=>{
 document.querySelectorAll('.updatef').forEach(Element =>{
     //Si en clique sur le button modifié
     Element.addEventListener('click', async ()=>{
-        // console.log(id);
-
+   
         let nom=document.getElementById("nom").value;
         let prenom=document.getElementById("prenom").value;
         let cin=document.getElementById("cin").value;
@@ -171,32 +244,45 @@ document.querySelectorAll('.updatef').forEach(Element =>{
         let email=document.getElementById("email").value;
         let password=document.getElementById("password").value;
 
-        // let persone=new personne();  
-        // let datapersonne= await persone.afficherall(chercherole());
         let personee;
 
         let role = chercherole();
         //verification de role avant l'ajout
-        if(role!="condidat"){
-            let dn="test";
+        
+        if(role!="candidatList" && role!="appranantlist"){
+              let dn="sans date";
             personee=new personne(nom,prenom,cin,tel,dn,email,password,role);
-            // let id=Element.getAttribute('data-type');
             let id = document.getElementById("id").value;
             personee.modifierpersonne(id);
-        }else{
+        }else if(role=="candidatList"){
             //modification des information de condidat en vérifiant l'age <35
             let datenaissance=document.getElementById("datens").value;
             let age=new Date().getFullYear()-new Date(datenaissance).getFullYear();
             //if age < 35 modifie
             if(age>=18 && age<=35){
-                personee=new personne(nom,prenom,cin,tel,new Date(datenaissance).toLocaleDateString(),email,password,chercherole());
-                let id=Element.getAttribute('data-type');
+                personee=new personne(nom,prenom,cin,tel,new Date(datenaissance).toLocaleDateString(),email,password,"condidat");
+                let id = document.getElementById("id").value;
                 personee.modifierpersonne(id);
             }
             //sinon message alert 
             else{
                 alert("age entre 18 et 35");
             } 
+           
+        }else if(role=="appranantlist"){
+              //modification des information de condidat en vérifiant l'age <35
+              let datenaissance=document.getElementById("datens").value;
+              let age=new Date().getFullYear()-new Date(datenaissance).getFullYear();
+              //if age < 35 modifie
+              if(age>=18 && age<=35){
+                  personee=new personne(nom,prenom,cin,tel,new Date(datenaissance).toLocaleDateString(),email,password,"apprenant");
+                  let id = document.getElementById("id").value;
+                  personee.modifierpersonne(id);
+              }
+              //sinon message alert 
+              else{
+                  alert("age entre 18 et 35");
+              }
         }
     });
 });
@@ -222,12 +308,12 @@ document.querySelectorAll('#auth').forEach(Element =>{
                     if(element.email==email && element.password==password){
                         verif=1;
                     }
+
                 });
         }
 
         if(verif == 1){
-            alert("ana f page home");
-            //  window.location.href = "http://127.0.0.1:5500/home";
+            window.location.href = "http://127.0.0.1:5500/testEnLigne.html";
          }else{
             alert("les informations son incorrect");
          }
@@ -269,7 +355,7 @@ document.querySelectorAll('#login').forEach(Element =>{
             window.location.href = "http://127.0.0.1:5500/";
          }
          else  {
-            // window.location.href = "http://127.0.0.1:5500/auth.html";
+            
             alert("les informations son incorrect") 
         }
 

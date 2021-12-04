@@ -31,15 +31,17 @@
                         class="fas fa-chalkboard-teacher me-2"></i>Formateur</a>
                 <a href="./staff.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                         class="fas fa-user-shield me-2"></i>Responsable</a>
-                        <a href="./question.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                            class="fas fa-comment-dots me-2"></i>Question</a>
-                    <a href="./test.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold "><i
-                        class="fas fa-comment-dots me-2"></i>Test</a>
-                    <a href="./candidatList.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                        class="fas fa-comment-dots me-2"></i>Liste des candidats</a>
-                    <a href="./appranantlist.html" class="list-group-item list-group-item-action bg-transparent second-text active"><i
-                            class="fas fa-comment-dots me-2"></i>Liste des apprenants</a>
-                        
+                <a href="./question.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fas fa-comment-dots me-2"></i>Question</a>
+                <a href="./test.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold "><i
+                    class="fas fa-comment-dots me-2"></i>Test</a>
+                <a href="./candidatList.html" class="list-group-item list-group-item-action bg-transparent second-text"><i
+                    class="fas fa-comment-dots me-2"></i>Liste des candidats</a>
+                <a href="./appranantlist.html" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                        class="fas fa-comment-dots me-2"></i>Liste des apprenants</a>
+                    
+
+            </div>
         </div>
         <!-- /#sidebar-wrapper -->
 
@@ -63,7 +65,7 @@
                                 <i class="fas fa-user me-2 "></i>Admin
                             </a>
                             <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Se déconnecter</a></li>
+                                <li><a class="dropdown-item" href="#">Se dÃ©connecter</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -75,7 +77,7 @@
                         <div class="table-title">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <h2>List des Formateurs</b></h2>
+                                    <h2>Liste des appranant</b></h2>
                                 </div>
                             </div>
                         </div>
@@ -86,47 +88,49 @@
                                     <th>Prenom</th>
                                     <th>Email</th>
                                     <th>Tel</th>
+                                    <th>Date de naissance</th>
                                     <th>CIN</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody >
                                 <form >
-                                    <div id="addEmployeeModal">
-                                        <div class="modal-header ">						
-                                            <h4 class="modal-title">Ajouter un formateur</h4>
-                                        </div>
+                                    <div >
                                         <div class="modal-body ">					
                                             <div class="form-group">
                                                 <label>Nom</label>
                                                 <input type="text" id="nom" class="form-control" required>
                                             </div>
                                             <div class="form-group">
+                                                <label>Prenom</label>
+                                                <input type="text" id="prenom" class="form-control" required>
+                                            </div>  
+                                            <div class="form-group">
                                                 <label>Email</label>
                                                 <input type="email" id="email" class="form-control" required>
                                             </div>
                                             <div class="form-group">
-                                                <label>Password</label>
-                                                <input class="form-control" id="password" required>
-                                            </div>   
+                                                <label>Tel</label>
+                                                <input type="text" class="form-control" id="tel" required>
+                                            </div>	
                                             <div class="form-group">
-                                                <label>Prenom</label>
-                                                <input type="text" id="prenom" class="form-control" required>
-                                            </div>   
-                                            <input type="text" id="id" class="form-control" hidden>
+                                                <label>Date de naissance</label>
+                                                <input type="text" class="form-control" id="datens" required>
+                                            </div>
 
                                             <div class="form-group">
                                                 <label>CIN</label>
                                                 <input class="form-control" id="cin" required>
                                             </div>                                    
                                             <div class="form-group">
-                                                <label>Tel</label>
-                                                <input type="text" class="form-control" id="tel" required>
-                                            </div>					
+                                                <label>Password</label>
+                                                <input class="form-control" id="password" required>
+                                            </div> 		
+                                            <input type="text" id="id" class="form-control" hidden>
                                         </div>
                                         <div class="modal-footer">
-                                            <input type="submit" class="btn btn-success" id="ajouterf" value="Add">
-                                            <input type="submit" class="updatef btn btn-warning " id="updatef"  value="update">
+                                            <input type="hidden" class="btn btn-success" id="ajouterf" value="Add">
+                                            <input type="submit" class="updatef btn btn-warning " id="modifier"  value="update">
                                         </div>
                                     </div>
                                 </form>
@@ -134,14 +138,6 @@
                         </table>
                     </div>
                 </div>        
-            </div>
-            <!-- add Modal HTML -->
-            <div id="addEmployeeModal" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        
-                    </div>
-                </div>
             </div>
         </div>
     
