@@ -53,6 +53,15 @@
       "email": "hdiuqzef@gmail.com",
       "password": "rr",
       "id": 9
+    },
+    {
+      "nom": "ve;",
+      "prenom": "ve;",
+      "cin": "kkkkkkk",
+      "tel": "lplp",
+      "email": "hdiuqzjjjef@gmail.com",
+      "password": "lj",
+      "id": 10
     }
   ],
   "condidat": [
@@ -87,15 +96,6 @@
       "email": "hdiuqzef@gmail.com",
       "password": "zzz",
       "id": 5
-    },
-    {
-      "nom": "ve;z",
-      "prenom": "ve;",
-      "cin": "z",
-      "tel": "zz",
-      "email": "hdiuqzef@gmail.com",
-      "password": "zzz",
-      "id": 6
     }
   ],
   "questions": [

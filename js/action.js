@@ -37,7 +37,7 @@ import {personne} from './useClasse.js';
     }
     //ajouter personne
 
-    if(chercherole() == "candidatList" || chercherole() == "staff"  ){
+    if(chercherole() == "candidatList" || chercherole() == "staff" || chercherole() == "formateur" ){
         document.querySelector("#ajouterf").addEventListener("click",async()=>{
             //declaration des variables
             let nom=document.getElementById("nom").value;
@@ -138,6 +138,17 @@ if(chercherole()!="condidat" && chercherole() !="auth"  && chercherole() != "log
     let table=document.getElementById("idtable");
     let persone=new personne();
     let datapersonne;
+    let usersdata =JSON.parse(sessionStorage.getItem('login'));
+    let rolee;
+    usersdata.forEach(element => {
+         rolee=element.role;
+    });
+            
+    if(rolee!="admin"){
+        document.getElementById("ajouterf").style.display="none";
+    }
+    
+
     if(chercherole()=="candidatList"){
         datapersonne=await persone.afficherall("condidat");    
     }else if(chercherole()=="appranantlist"){
@@ -155,7 +166,7 @@ if(chercherole()!="condidat" && chercherole() !="auth"  && chercherole() != "log
                 <td>${element.email}</td>
                 <td>${element.tel}</td>
                 <td>${element.cin}</td>
-            <td class="d-flex"> <button class="supprimer  btn btn-danger text-white btn-sm" data-type="${element.id}">supprimer</button> &nbsp; &nbsp;
+            <td class="d-flex" > <button  class="supprimer  btn btn-danger text-white btn-sm" data-type="${element.id}">supprimer</button> &nbsp; &nbsp;
                <button class="modifier  btn btn-info btn-sm ml-2 text-white" data-type="${element.id}">modifier</button>
             </td>
         </tr>`
@@ -174,7 +185,7 @@ if(chercherole()!="condidat" && chercherole() !="auth"  && chercherole() != "log
                 <td>${element.tel}</td>
                 <td>${element.datenaissance}</td>
                 <td>${element.cin}</td>
-                <td class="d-flex"> <button class="supprimer btn btn-danger btn-sm text-white" data-type="${element.id}">supprimer</button> &nbsp;&nbsp;
+                <td class="d-flex" > <button  class="supprimer btn btn-danger btn-sm text-white" data-type="${element.id}">supprimer</button> &nbsp;&nbsp;
                 <button class="modifier btn btn-info btn-sm ml-2  text-white" data-type="${element.id}">modifier</button>
                 </td>
             </tr>`
@@ -332,32 +343,58 @@ document.querySelectorAll('#login').forEach(Element =>{
         let dataStaf= await persone.afficherall("staff");
         let dataFormateur= await persone.afficherall("formateur");
         let dataAdmin= await persone.afficherall("admin");
-
+        let arrayAuth =[];
         if( chercherole()== "login"){
-                dataStaf.data.forEach(element => {
-                    if(element.email==email && element.password==password){
-                        verifdash=1;
-                    }
-                });
+            dataStaf.data.forEach(element => {
+                if(element.email==email && element.password==password){
+                    verifdash=1;
+                    arrayAuth.push({
+                        role:'staff',
+                        nom: element.nom,
+                        prenom: element.prenom,
+                        email: element.email,
+                        id: element.id,
+                        });
+                        sessionStorage.setItem('login',JSON.stringify(arrayAuth));
+                    window.location.href = "http://127.0.0.1:5500/dashboard.html";
+                }
+            });
 
-                dataFormateur.data.forEach(element => {
-                    if(element.email==email && element.password==password){
-                        verifdash=1;
-                    }
-                });
-                dataAdmin.data.forEach(element => {
-                    if(element.email==email && element.password==password){
-                        verifdash=1;    
-                    }
-                });
+            dataFormateur.data.forEach(element => {
+                if(element.email==email && element.password==password){
+                    verifdash=1;
+                    arrayAuth.push({
+                        role:'formateur',
+                        nom: element.nom,
+                        prenom: element.prenom,
+                        email: element.email,
+                        id: element.id,
+                        });
+                        sessionStorage.setItem('login',JSON.stringify(arrayAuth));
+                    window.location.href = "http://127.0.0.1:5500/dashboard.html";
+                }
+            });
+            dataAdmin.data.forEach(element => {
+                if(element.email==email && element.password==password){
+                    verifdash=1;  
+                    arrayAuth.push({
+                        role:'admin',
+                        nom: element.nom,
+                        prenom: element.prenom,
+                        email: element.email,
+                        id: element.id,
+                        });
+                        sessionStorage.setItem('login',JSON.stringify(arrayAuth));
+                    window.location.href = "http://127.0.0.1:5500/dashboard.html";
+                    
+                }
+            });
+            if(verifdash!=1){
+                alert("les informations son incorrect");
+            }
         }
-        if(verifdash==1){
-            window.location.href = "http://127.0.0.1:5500/";
-         }
-         else  {
-            
-            alert("les informations son incorrect") 
-        }
-
     });
+
 });
+
+// deconnect
