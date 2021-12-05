@@ -110,85 +110,310 @@
   ],
   "questions": [
     {
-      "id": "",
-      "type": "",
-      "point": "",
-      "nom": "",
-      "repenses": [
-        {
-          "repense": "1",
-          "status": "true"
-        },
-        {
-          "repense": "2",
-          "status": "false"
-        },
-        {
-          "repense": "3",
-          "status": "false"
-        },
-        {
-          "repense": "4",
-          "status": "false"
-        }
-      ]
-    },
-    {
-      "type": "technique",
-      "point": "2",
-      "nom": "app 1",
-      "repenses": [
-        {
-          "repense": "fg",
-          "status": "false"
-        },
-        {
-          "repense": "fg",
-          "status": "false"
-        },
-        {
-          "repense": "fg",
-          "status": "true"
-        }
-      ],
-      "id": "iipM7Ys"
-    },
-    {
-      "type": "technique",
+      "type": "test-en-ligne",
       "point": "1",
-      "nom": "app 222",
+      "nom": "What does HTML stand for?",
       "repenses": [
         {
-          "repense": "aaa",
+          "repense": "Hyper Text Preprocessor",
+          "status": "false"
+        },
+        {
+          "repense": "Hyper Text Markup Language",
+          "status": "true"
+        },
+        {
+          "repense": "Hyper Text Multiple Language",
+          "status": "false"
+        },
+        {
+          "repense": "Hyper Tool Multi Language",
+          "status": "false"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "type": "test-en-ligne",
+      "point": "1",
+      "nom": "What does CSS stand for?",
+      "repenses": [
+        {
+          "repense": "Cascading Style Sheet",
+          "status": "true"
+        },
+        {
+          "repense": "Computer Style Sheet",
+          "status": "false"
+        },
+        {
+          "repense": "Common Style Sheet",
+          "status": "false"
+        },
+        {
+          "repense": "Colorful Style Sheet",
+          "status": "false"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "type": "test-en-ligne",
+      "point": "1",
+      "nom": "What does PHP stand for?",
+      "repenses": [
+        {
+          "repense": "Hypertext Preprocessor",
+          "status": "false"
+        },
+        {
+          "repense": "Hypertext Programming",
+          "status": "true"
+        },
+        {
+          "repense": "Hypertext Preprogramming",
+          "status": "false"
+        },
+        {
+          "repense": "Hometext Preprocessor",
+          "status": "false"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "type": "test-en-ligne",
+      "point": "1",
+      "nom": "What does SQL stand for?",
+      "repenses": [
+        {
+          "repense": "Stylish Question Language",
+          "status": "false"
+        },
+        {
+          "repense": "Stylesheet Query Language",
+          "status": "false"
+        },
+        {
+          "repense": "Statement Question Language",
+          "status": "false"
+        },
+        {
+          "repense": "Structured Query Language",
           "status": "true"
         }
       ],
-      "id": "46lgA5H"
+      "id": 4
+    },
+    {
+      "type": "test-en-ligne",
+      "point": "1",
+      "nom": "What does XML stand for?",
+      "repenses": [
+        {
+          "repense": "eXtensible Markup Language",
+          "status": "true"
+        },
+        {
+          "repense": "eXecutable Multiple Language",
+          "status": "false"
+        },
+        {
+          "repense": "eXTra Multi-Program Language",
+          "status": "false"
+        },
+        {
+          "repense": "eXamine Multiple Language",
+          "status": "false"
+        }
+      ],
+      "id": 5
+    },
+    {
+      "type": "serious game",
+      "point": "7",
+      "nom": "Comment commercialiser un produit?",
+      "repenses": [
+        {
+          "repense": "hey",
+          "status": "true"
+        }
+      ],
+      "id": 7
+    },
+    {
+      "type": "motivation",
+      "point": "3",
+      "nom": "presentez-vous",
+      "repenses": [
+        {
+          "repense": "a",
+          "status": "true"
+        }
+      ],
+      "id": 8
     }
   ],
   "test": [
     {
-      "id": "",
-      "formateur": "",
+      "type": "test-en-ligne",
       "nom": "",
       "datedebut": "",
       "datefin": "",
-      "afficheresult": "",
-      "scoore": "",
+      "afficherresult": "",
+      "scoore": 4,
       "questions": [
-        "idquestion Ex",
-        1,
-        2,
-        3
-      ]
+        {
+          "idquestions": "1"
+        },
+        {
+          "idquestions": "2"
+        },
+        {
+          "idquestions": "3"
+        },
+        {
+          "idquestions": "4"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "type": "technique",
+      "nom": "",
+      "datedebut": "",
+      "datefin": "",
+      "afficherresult": "",
+      "scoore": 4,
+      "questions": [
+        {
+          "idquestions": "1"
+        },
+        {
+          "idquestions": "2"
+        },
+        {
+          "idquestions": "3"
+        },
+        {
+          "idquestions": "4"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "type": "serious game",
+      "nom": "",
+      "datedebut": "",
+      "datefin": "",
+      "afficherresult": "",
+      "scoore": 5,
+      "questions": [
+        {
+          "idquestions": "7"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "type": "motivation",
+      "nom": "",
+      "datedebut": "",
+      "datefin": "",
+      "afficherresult": "",
+      "scoore": 5,
+      "questions": [
+        {
+          "idquestions": "6"
+        }
+      ],
+      "id": 4
+    },
+    {
+      "type": "motivation",
+      "nom": "",
+      "datedebut": "",
+      "datefin": "",
+      "afficherresult": "",
+      "scoore": 3,
+      "questions": [
+        {
+          "idquestions": "8"
+        }
+      ],
+      "id": 5
     }
   ],
   "result": [
     {
-      "id": "",
-      "idcondidat": "",
-      "idtest": "",
-      "scoore": ""
+      "idtest": 1,
+      "idcondidat": [
+        {
+          "role": "candidat",
+          "nom": "kjhkjh",
+          "prenom": "kjh",
+          "email": "a@gmail.com",
+          "id": 1
+        }
+      ],
+      "scoore": 1,
+      "id": 1
+    },
+    {
+      "idtest": 1,
+      "idcondidat": [
+        {
+          "role": "candidat",
+          "nom": "kjhkjh",
+          "prenom": "kjh",
+          "email": "a@gmail.com",
+          "id": 1
+        }
+      ],
+      "scoore": 4,
+      "id": 2
+    },
+    {
+      "idtest": 2,
+      "idcondidat": [
+        {
+          "role": "candidat",
+          "nom": "kjhkjh",
+          "prenom": "kjh",
+          "email": "a@gmail.com",
+          "id": 1
+        }
+      ],
+      "scoore": 1,
+      "id": 3
+    },
+    {
+      "idtest": 3,
+      "idcondidat": [
+        {
+          "role": "candidat",
+          "nom": "kjhkjh",
+          "prenom": "kjh",
+          "email": "a@gmail.com",
+          "id": 1
+        }
+      ],
+      "scoore": 0,
+      "id": 8
+    },
+    {
+      "idtest": 5,
+      "idcondidat": [
+        {
+          "role": "candidat",
+          "nom": "kjhkjh",
+          "prenom": "kjh",
+          "email": "a@gmail.com",
+          "id": 1
+        }
+      ],
+      "scoore": 0,
+      "id": 9
     }
   ]
 }

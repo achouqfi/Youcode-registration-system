@@ -70,3 +70,10 @@ body {
 	color: #fff; 
 	display: inline-block;
 }
+.qst{
+	display: none;
+}
+
+.qst.active{
+	display: block;
+}

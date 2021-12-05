@@ -180,6 +180,8 @@ export  class test{
         return aff
     }
     
+
+    
     ajoutertest(){ 
         let  data={
             type:this.type, 
@@ -202,6 +204,11 @@ export  class test{
     }
 
 
+    affichertest(id){
+        let aff= axios.get(`${url}/test/${id}`);
+        return aff  
+    }
+
 
     supprimertest(id){
         axios.delete(`${url}/test/${id}`);
@@ -222,4 +229,39 @@ export  class test{
         axios.put(`${url}/test/${id}`,data);
      }
 
+}
+
+
+
+//class result
+export  class result{
+
+    idtest;
+    idcondidat;
+    scoore;
+
+
+    constructor (idt,idc,scoore)
+    {
+            this.idtest=idt;
+            this.idcondidat=idc;
+            this.scoore=scoore;
+    }
+
+    afficherallresult(){
+        let aff= axios.get(`${url}/result`);
+        return aff
+    }
+    
+
+    
+    ajouterresult(){ 
+        let  data={
+            idtest:this.idtest, 
+            idcondidat:this.idcondidat,
+            scoore:this.scoore
+          
+          }
+        axios.post(`${url}/result`,data);
+    }
 }

@@ -1,11 +1,11 @@
 import {personne} from './useClasse.js';
-
+import {result} from './useClasse.js'
     let urll=document.URL;
     let role;
     
-    let verifAuthDash = sessionStorage.getItem('login');
+    // let verifAuthDash = sessionStorage.getItem('login');
 
-    console.log(verifAuthDash.role);
+    // console.log(verifAuthDash.role);
     //recherche role
     function chercherole(){
         
@@ -28,6 +28,8 @@ import {personne} from './useClasse.js';
             role="appranantlist";
         }else if(urll.includes("dashboard")){
             role="dashboard";
+        }else if(urll.includes("test_en_ligne")){
+            role="test_en_ligne";
         }
         return role;
     }
@@ -87,7 +89,7 @@ import {personne} from './useClasse.js';
                     if(age>=18 && age<=35){
                         personee=new personne(nom,prenom,cin,tel,new Date(datenaissance).toLocaleDateString(),email,password,chercherole());
                         alert(`votre mot de passe est : ${password}`);
-                        localStorage.setItem('email', email);
+                        localStorage.setItem('email', email,nom,prenom );
                         personee.ajouterpersonne();
                         window.location.href = "http://127.0.0.1:5500/auth.html";
                     }else{
@@ -149,46 +151,62 @@ dataapprenant.data.forEach(element => {
 }
 
 //******************************************************************************************** 
-
+console.log(chercherole());
 //affichage data
 if(chercherole()!="condidat" && chercherole() !="auth"  && chercherole() != "login"){
     let table=document.getElementById("idtable");
     let persone=new personne();
+    let resultat=new result();
     let datapersonne;
+    let datatest;
+
     let usersdata =JSON.parse(sessionStorage.getItem('login'));
     let rolee;
-    usersdata.forEach(element => {
-         rolee=element.role;
-    });
-            
-    if(rolee!="admin"){
-        document.getElementById("ajouterf").style.display="none";
-    }
 
     if(chercherole()=="candidatList"){
-        datapersonne=await persone.afficherall("condidat");    
+        datapersonne=await persone.afficherall("condidat"); 
     }else if(chercherole()=="appranantlist"){
         datapersonne=await persone.afficherall("apprenant");
-    }else{
+    }else if(chercherole()=="test_en_ligne"){
+        datatest=await resultat.afficherallresult();
+    }
+    else{
         datapersonne=await persone.afficherall(chercherole());
     }
-    
-    if(chercherole()!="candidatList" && chercherole()!="appranantlist" ){
-    datapersonne.data.forEach(element => {
-        table.innerHTML+=`
-        <tr>
-            <td>${element.nom}</td>
-            <td>${element.prenom}</td>
-            <td>${element.email}</td>
-            <td>${element.tel}</td>
-            <td>${element.cin}</td>
-            <td class="d-flex" > <button  class="supprimer  btn btn-danger text-white btn-sm" data-type="${element.id}">supprimer</button> &nbsp; &nbsp;
-               <button class="modifier  btn btn-info btn-sm ml-2 text-white" data-type="${element.id}">modifier</button>
-            </td>
-        </tr>`
-    });
-
-    }else{
+       
+    if(chercherole()!="candidatList" && chercherole()!="appranantlist" && chercherole()!="test_en_ligne" ){
+        datapersonne.data.forEach(element => {
+            table.innerHTML+=`
+            <tr>
+                <td>${element.nom}</td>
+                <td>${element.prenom}</td>
+                <td>${element.email}</td>
+                <td>${element.tel}</td>
+                <td>${element.cin}</td>
+                <td class="d-flex" > <button  class="supprimer  btn btn-danger text-white btn-sm" data-type="${element.id}">supprimer</button> &nbsp; &nbsp;
+                <button class="modifier  btn btn-info btn-sm ml-2 text-white" data-type="${element.id}">modifier</button>
+                </td>
+            </tr>`
+        });
+    }
+    else if(chercherole() =="test_en_ligne"){
+        datatest.data.forEach(element => {
+            let re = '';
+            let a = '';
+            element.idcondidat.forEach(element => {
+                re += `<p>repense:${element.nom} <br> email:${element.email}</p>`;
+                a += `<a href="mailto:${element.email}"  class="btn btn-info text-white btn-sm">email</a>`;
+            });
+            table.innerHTML+=`
+            <tr>
+                <td>test: ${element.idtest}</td>
+                <td>${element.scoore}</td>
+                <td>${re}</td>
+            
+                <td class="d-flex"> ${a} </td>
+            </tr>`
+        });
+    }else if(chercherole() =="candidatList" && chercherole() =="appranantlist"){
         datapersonne.data.forEach(element => {
             table.innerHTML+=`
             <tr>
@@ -300,43 +318,38 @@ document.querySelectorAll('#auth').forEach(Element =>{
         let persone=new personne();
         let dataCandidat= await persone.afficherall("condidat");
         let dataApprenant= await persone.afficherall("apprenant");
-        
+        let arrayAuth =[];
         if( chercherole()== "auth") {
             dataApprenant.data.forEach(element => {
                 if(element.email==email && element.password==password){
                     verif=1;
-                    // arrayAuth.push({
-                    //     role:'staff',
-                    //     nom: element.nom,
-                    //     prenom: element.prenom,
-                    //     email: element.email,
-                    //     id: element.id,
-                    //     });
-                    //     sessionStorage.setItem('login',JSON.stringify(arrayAuth));
-                    // window.location.href = "http://127.0.0.1:5500/dashboard.html";
-                }
+                    arrayAuth.push({
+                        role:'apprenant',
+                        nom: element.nom,
+                        prenom: element.prenom,
+                        email: element.email,
+                        id: element.id,
+                        });
+                        sessionStorage.setItem('auth',JSON.stringify(arrayAuth));
+                        window.location.href = "http://127.0.0.1:5500/sourcing.html";
+                        // alert("ddd");
+                    }
             });
             dataCandidat.data.forEach(element => {
                 if(element.email==email && element.password==password){
                     verif=1;
-                    // arrayAuth.push({
-                    //     role:'staff',
-                    //     nom: element.nom,
-                    //     prenom: element.prenom,
-                    //     email: element.email,
-                    //     id: element.id,
-                    //     });
-                    //     sessionStorage.setItem('login',JSON.stringify(arrayAuth));
-                    // window.location.href = "http://127.0.0.1:5500/dashboard.html";
+                    arrayAuth.push({
+                        role:'candidat',
+                        nom: element.nom,
+                        prenom: element.prenom,
+                        email: element.email,
+                        id: element.id,
+                        });
+                    sessionStorage.setItem('auth',JSON.stringify(arrayAuth));
+                    window.location.href = "http://127.0.0.1:5500/testEnLigne.html";
                 }
             });
         }
-
-        if(verif == 1){
-            window.location.href = "http://127.0.0.1:5500/testEnLigne.html";
-         }else{
-            alert("les informations son incorrect");
-         }
     });
 });
 
@@ -403,6 +416,4 @@ document.querySelectorAll('#login').forEach(Element =>{
             }
         }
     });
-
 });
-

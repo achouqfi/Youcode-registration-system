@@ -125,11 +125,9 @@ const ModifieFunction = () =>{
                                 <option value="true">true</option>
                                 <option value="false">false</option>
                                 </select> 
-                            </div>
-                        `
+                            </div>`
                     });
                 }
-                
             })
         });
 }
